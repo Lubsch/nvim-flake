@@ -28,7 +28,7 @@
                 lua << EOF
                 -- install all treesitter grammars without slowing down startup
                 vim.opt.runtimepath:append("${pkgs.symlinkJoin {
-                  name = "treesitter-parsers";
+                  name = "treesitter-grammars";
                   paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
                 } }")
                 ${builtins.readFile ./init.lua}
