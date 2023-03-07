@@ -4,18 +4,15 @@ with pkgs.vimPlugins; {
     nvim-treesitter
     nvim-lspconfig
     vim-commentary
-    smart-pairs
-    tex-conceal
-    gruvbox
-    asyncrun
-    plenary
-    telescope
-    telescope-fzf-native
-    mkdnflow
+    nvim-autopairs
+    tex-conceal-vim
+    gruvbox-nvim
+    asyncrun-vim
+    telescope-nvim
+    telescope-fzf-native-nvim
     vim-startuptime
-    impatient
-    filetype
-    markdown-preview
+    impatient-nvim
+    markdown-preview-nvim
   ];
   opt = [  ];
 }
