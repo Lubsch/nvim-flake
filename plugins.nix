@@ -1,7 +1,7 @@
 pkgs:
 with pkgs.vimPlugins; {
   start = [
-    nvim-treesitter.withAllGrammars
+    nvim-treesitter
     nvim-lspconfig
     vim-commentary
     nvim-autopairs
@@ -14,5 +14,5 @@ with pkgs.vimPlugins; {
     impatient-nvim
     markdown-preview-nvim
   ];
-  opt = [  ];
+  opt = [];
 }

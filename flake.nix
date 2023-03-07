@@ -26,6 +26,11 @@
             configure = {
               customRC = ''
                 lua << EOF
+                -- install all treesitter grammars without slowing down startup
+                vim.opt.runtimepath:append("${pkgs.symlinkJoin {
+                  name = "treesitter-parsers";
+                  paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
+                } }")
                 ${builtins.readFile ./init.lua}
                 EOF
                 ${builtins.readFile ./init.vim}
