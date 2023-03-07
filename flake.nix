@@ -7,6 +7,9 @@
     let
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
       pkgs = forAllSystems (system: import nixpkgs { inherit system; });
+      luaRC = builtins.readFile ./init.vim;
+      vimRC = builtins.readFile ./init.lua;
+      plugins = import ./plugins.nix pkgs;
     in rec {
 
       apps = forAllSystems (system: {
@@ -23,10 +26,15 @@
 
         neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped {
           configure = {
-            customRC = builtins.readFile ./init.vim;
+            customRC = ''
+              ${vimRC}
+              lua << EOF
+              ${luaRC}
+              EOF
+            '';
             packages.myVimPackage =  with pkgs.vimPlugins; {
-              start = import ./startPlugins.nix;
-              opt = import ./optPlugins.nix;
+              start = import ./startPlugins.nix pkgs;
+              opt = import ./optPlugins.nix pkgs;
             };
           };
         };
