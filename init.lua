@@ -2,7 +2,14 @@
 require('impatient')
 
 
-require("gruvbox").setup({ italic = false })
+require("gruvbox").setup({ 
+    italic = false,
+    overrides = {
+        LineNr = { fg = "#fabd2f" },
+        LineNrAbove = { fg = "#7c6f64" },
+        LineNrBelow = { fg = "#7c6f64" }
+    }
+})
 
 
 -- Autopair
