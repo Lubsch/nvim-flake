@@ -44,10 +44,14 @@ nnoremap <silent> <esc> :noh<CR><esc>
 "Persistent undo (into ~/.local/share/nvim/undo)
 set undofile
 
-"Relative line numbering
-set number relativenumber
+"Relative line numbers
+set number relativenumber numberwidth=1
+"Always show debug sign column
+set signcolumn=yes
+"Color signcolumn correctly
+hi SignColumn guibg=bg
 
-"INDENT
+"Indendation
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent smartindent
 autocmd FileType nix setlocal tabstop=2 softtabstop=2 shiftwidth=2 cindent cinkeys-=0#
 
