@@ -1,7 +1,6 @@
 -- Improve startup time
 require('impatient')
 
-
 require("gruvbox").setup({ 
     italic = false,
     overrides = {
@@ -11,9 +10,28 @@ require("gruvbox").setup({
     }
 })
 
+local actions = require("telescope.actions")
+require("telescope").setup{
+    defaults = {
+        mappings = {
+            i = {
+                ["<esc>"] = actions.close,
+                ["<C-j>"] = {
+                  actions.move_selection_next, type = "action",
+                  opts = { nowait = true, silent = true }
+                },
+                ["<C-k>"] = {
+                  actions.move_selection_previous, type = "action",
+                  opts = { nowait = true, silent = true }
+                },
+            }
+        }
+    }
+}
+
 
 -- Autopair
-require 'nvim-autopairs':setup {}
+require 'nvim-autopairs':setup{}
 
 -- treesitter
 require'nvim-treesitter.configs'.setup {

@@ -8,9 +8,6 @@ nnoremap <silent> <leader>g :Telescope live_grep<cr>
 
 colorscheme gruvbox
 
-" Disable mouse
-set mouse=
-
 " So that neovim follows the transparency rules of alacritty
 " hi Normal ctermbg=NONE guibg=NONE
 
